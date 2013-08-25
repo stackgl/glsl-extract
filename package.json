@@ -4,7 +4,7 @@
   "description": "extract uniforms and attributes from glsl programs",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js"
+    "test": "node test/index.js"
   },
   "repository": {
     "type": "git",

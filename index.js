@@ -49,8 +49,8 @@ function extract(program, getcontext) {
     function output_all() {
       try {
         ready(null, {
-            uniforms: format(getcontext, uniforms, structs)
-          , attributes: format(getcontext, attributes, structs)
+            uniforms: format(uniforms, structs)
+          , attributes: format(attributes, structs)
         })
       } catch(err) {
         ready(err)

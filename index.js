@@ -7,6 +7,8 @@ var tokenizer = require('glsl-tokenizer')
   , parser = require('glsl-parser')
   , through = require('through')
 
+var preprocess = require('./lib/preprocess')
+
 var collect = require('./lib/collect')
   , format = require('./lib/format')
 
@@ -29,8 +31,7 @@ function extract(program, getcontext) {
   return continuable
 
   function continuable(ready) {
-    var definitions = {}
-      , attributes = []
+    var attributes = []
       , uniforms = []
       , structs = {}
 
@@ -38,8 +39,9 @@ function extract(program, getcontext) {
       .pipe(utf8stream())
       .pipe(tostring())
       .pipe(tokenizer())
+      .pipe(preprocess(getcontext))
       .pipe(parser())
-      .pipe(collect(structs, uniforms, attributes, definitions))
+      .pipe(collect(structs, uniforms, attributes))
       .pipe(through(null, output_all))
 
     pause.resume()
@@ -47,8 +49,8 @@ function extract(program, getcontext) {
     function output_all() {
       try {
         ready(null, {
-            uniforms: format(getcontext, uniforms, structs, definitions)
-          , attributes: format(getcontext, attributes, structs, definitions)
+            uniforms: format(getcontext, uniforms, structs)
+          , attributes: format(getcontext, attributes, structs)
         })
       } catch(err) {
         ready(err)

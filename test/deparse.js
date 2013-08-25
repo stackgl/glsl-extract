@@ -1,9 +1,6 @@
 var deparse = require('../lib/deparse.js')
-  , tokenizer = require('glsl-tokenizer')
-  , lang = require('cssauron-glsl')
-  , parser = require('glsl-parser')
-  , through = require('through')
-  , duplex = require('duplexer')
+  , select = require('./util-select')
+  , ast = require('./util-ast')
   , test = require('tape')
 
 test(
@@ -52,23 +49,4 @@ function test_returns_result(assert) {
     assert.equal(deparse(node), 100 + 3 / 10 | 0)
     assert.end()
   }
-}
-
-function select(sel) {
-  sel = lang(sel)
-
-  return through(function(node) {
-    if(sel(node)) {
-      this.queue(node)
-    }
-  })
-}
-
-function ast() {
-  var tokens = tokenizer()
-    , parse = parser()
-
-  tokens.pipe(parse)
-
-  return duplex(tokens, parse)
 }

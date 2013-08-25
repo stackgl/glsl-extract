@@ -1,8 +1,6 @@
 var collect = require('../lib/collect.js')
-  , tokenizer = require('glsl-tokenizer')
-  , parser = require('glsl-parser')
   , through = require('through')
-  , duplex = require('duplexer')
+  , ast = require('./util-ast')
   , test = require('tape')
 
 var types = [
@@ -118,12 +116,3 @@ test('unit: collects attributes and uniforms', function(assert) {
     assert.end()
   }
 })
-
-function ast() {
-  var tokens = tokenizer()
-    , parse = parser()
-
-  tokens.pipe(parse)
-
-  return duplex(tokens, parse)
-}

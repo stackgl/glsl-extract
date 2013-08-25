@@ -32,11 +32,6 @@ var types = [
   , 'user_defined_type'
 ]
 
-test('integration: works on real glsl program', function(assert) {
-
-  assert.end()
-})
-
 test('unit: collects vanilla structs', function(assert) {
   var nodes = ast()
     , structs = {}

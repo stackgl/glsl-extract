@@ -1,6 +1,6 @@
 {
   "name": "glsl-extract",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "extract uniforms and attributes from glsl programs",
   "main": "index.js",
   "scripts": {

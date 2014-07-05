@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/chrisdickinson/glsl-extract.git"
+    "url": "git://github.com/gl-modules/glsl-extract.git"
   },
   "keywords": [
     "extract",
@@ -16,18 +16,22 @@
     "uniforms",
     "attributes"
   ],
-  "author": "Chris Dickinson <chris@neversaw.us>",
+  "authors": [
+    "Hugh Kennedy <hughskennedy@gmail.com> (http://hughsk.io/)",
+    "Mikola Lysenko <mikolalysenko@gmail.com> (http://0fps.net)",
+    "Chris Dickinson <chris@neversaw.us> (http://neversaw.us)"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chrisdickinson/glsl-extract/issues"
+    "url": "https://github.com/gl-modules/glsl-extract/issues"
   },
   "dependencies": {
     "glsl-parser": "^1.0.0",
     "glsl-tokenizer": "^1.0.0",
-    "glsl-deparser": "^1.0.0"
+    "glsl-deparser": "^1.0.0",
     "cssauron-glsl": "0.0.0",
     "utf8-stream": "0.0.0",
-    "through": "~2.3.4",
+    "through": "~2.3.4"
   },
   "devDependencies": {
     "tape": "~1.0.4",

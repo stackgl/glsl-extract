@@ -22,12 +22,12 @@
     "url": "https://github.com/chrisdickinson/glsl-extract/issues"
   },
   "dependencies": {
-    "glsl-parser": "0.0.5",
-    "glsl-tokenizer": "0.0.8",
+    "glsl-parser": "^1.0.0",
+    "glsl-tokenizer": "^1.0.0",
+    "glsl-deparser": "^1.0.0"
     "cssauron-glsl": "0.0.0",
     "utf8-stream": "0.0.0",
     "through": "~2.3.4",
-    "glsl-deparser": "0.0.2"
   },
   "devDependencies": {
     "tape": "~1.0.4",
